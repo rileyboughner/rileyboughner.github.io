@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Riley Boughner</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .projects-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 800px; /* Set max width for the content */
+        text-align: center;
+      }
+
+      .project-item {
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-direction: column; /* Stack text and images vertically */
+      }
+
+      .project-item p {
+        margin: 0;
+      }
+
+      .project-item a {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+
+      .project-item img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      .back-button {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .back-button a {
+        text-decoration: none;
+        color: black;  /* Keep the color as black for the back button */
+        font-weight: bold;
+      }
+
+      /* Media query for mobile devices */
+      @media screen and (max-width: 768px) {
+        .project-item {
+          font-size: 24px;  /* Reduce font size for mobile */
+        }
+
+        .back-button {
+          font-size: 18px;  /* Adjust back button font size on mobile */
+        }
+
+        .projects-container {
+          width: 90vw;  /* Ensure projects container is responsive on mobile */
+        }
+
+        .project-item img {
+          width: 150px;  /* Adjust image size on mobile */
+          height: 150px;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <div class="projects-container">
+    <h1>~ My Projects ~</h1>
+
+    <div class="project-item">
+      <p>Project 1: <a href="https://github.com/60robo/project1" target="_blank">Awesome Project</a></p>
+      <img src="https://via.placeholder.com/200" alt="Project 1">
+    </div>
+
+    <div class="project-item">
+      <p>Project 2: <a href="https://github.com/60robo/project2" target="_blank">Next Gen App</a></p>
+      <img src="https://via.placeholder.com/200" alt="Project 2">
+    </div>
+
+    <div class="project-item">
+      <p>Project 3: <a href="https://github.com/60robo/project3" target="_blank">Portfolio Website</a></p>
+      <img src="https://via.placeholder.com/200" alt="Project 3">
+    </div>
+
+    <div class="project-item">
+      <p>Project 4: <a href="https://github.com/60robo/project4" target="_blank">Cool Chatbot</a></p>
+      <img src="https://via.placeholder.com/200" alt="Project 4">
+    </div>
+
+    <div class="back-button">
+      | <a href="index.html">Back</a> |
+    </div>
+  </div>
+
+</body>
+</html>
+
