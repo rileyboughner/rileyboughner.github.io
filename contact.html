@@ -4,44 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riley Boughner</title>
+    <title>Contact - Riley Boughner</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .contact-item {
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .contact-item p {
+        margin: 0;
+      }
+
+      .contact-item a {
+        margin-left: 5px;
+      }
+
+      .back-button {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .back-button a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Media query for mobile devices */
+      @media screen and (max-width: 768px) {
+        .contact-item {
+          font-size: 24px;  /* Reduce font size for mobile */
+        }
+
+        .back-button {
+          font-size: 18px;  /* Adjust back button font size on mobile */
+        }
+
+        .contact-container {
+          width: 90vw;  /* Ensure contact container is responsive on mobile */
+        }
+      }
+    </style>
 </head>
 <body>
 
-
-<div style="font-size: 28px; text-align: center; margin: 250px;">
-    
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <p style="margin: 0;">Email </p>
-        <a href="#" onclick="copyToClipboard('jojo.picktwn@gmail.com'); return false;" style="margin-left: 5px;">gmail.com</a>
+  <div class="contact-container">
+    <div class="contact-item">
+      <p>Email</p>
+      <a href="#" onclick="copyToClipboard('jojo.picktwn@gmail.com'); return false;">gmail.com</a>
     </div>
 
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <p style="margin: 0;">LinkedIn </p>
-        <a href="https://www.linkedin.com/in/rileyboughner/" style="margin-left: 5px;">rileyboughner</a>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <p style="margin: 0;">GitHub </p>
-        <a href="https://github.com/60robo" style="margin-left: 5px;">60robo</a>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <p style="margin: 0;">My Space </p>
-        <a href="https://en.wikipedia.org/wiki/Myspace" style="margin-left: 5px;">Riley Boughner</a>
+    <div class="contact-item">
+      <p>LinkedIn</p>
+      <a href="https://www.linkedin.com/in/rileyboughner/">rileyboughner</a>
     </div>
 
-    <div style="margin: 80px;">Talk Soon :)</div>
-</div>
+    <div class="contact-item">
+      <p>GitHub</p>
+      <a href="https://github.com/60robo">60robo</a>
+    </div>
 
+    <div class="contact-item">
+      <p>My Space</p>
+      <a href="https://en.wikipedia.org/wiki/Myspace">Riley Boughner</a>
+    </div>
 
-<script>
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Send me a message \n coppied to clipboard: ' + text);
-    }).catch(err => {
-        console.error('Error copying text: ', err);
-    });
-}
-</script>
+    <div style="margin-top: 40px; font-size: 24px;">Talk Soon :)</div>
+
+    <div class="back-button">
+      | <a href="index.html">Back</a> |
+    </div>
+
+  </div>
+
+  <script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Send me a message \n copied to clipboard: ' + text);
+        }).catch(err => {
+            console.error('Error copying text: ', err);
+        });
+    }
+  </script>
 
 </body>
 </html>
+
