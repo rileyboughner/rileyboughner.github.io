@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .quotes-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px; /* Space for back button */
+      }
+
+      .quote {
+        font-size: 48px;  /* Increased font size for quotes */
+        margin: 15px;
+        text-align: center;
+        font-style: italic;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 48px;  /* Larger title font size */
+        margin-bottom: 30px;
+      }
+
+      /* Style for back button */
+      .back-button {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .back-button a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Media query for mobile devices */
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 32px;  /* Reduce font size of title on mobile */
+        }
+
+        .quote {
+          font-size: 32px;  /* Reduce font size of quotes on mobile */
+          margin: 10px;  /* Adjust margin for smaller screens */
+        }
+
+        .back-button {
+          font-size: 18px;  /* Adjust back button font size on mobile */
+        }
+
+        .quotes-container {
+          width: 90vw;  /* Ensure quotes container is responsive on mobile */
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <h1>~ Quotes ~</h1>
+  <div id="quotes-container" class="quotes-container">
+    <!-- Quotes will be displayed here -->
+  </div>
+
+  <div class="back-button">
+    | <a href="index.html">Back</a> |
+  </div>
+
+  <script>
+    // Quotes array simulating quotes.txt content
+    const quotes = [
+      "keeping it simple since 2003!",
+      "I dont center divs, divs center me.",
+      "the fastest portfolio you will ever see."
+    ];
+
+    // Get the container element
+    const container = document.getElementById('quotes-container');
+
+    // Loop through each quote and display it on the page
+    quotes.forEach(quote => {
+      const quoteElement = document.createElement('div');
+      quoteElement.classList.add('quote');
+      quoteElement.textContent = quote;
+      container.appendChild(quoteElement);
+    });
+  </script>
+
+</body>
+</html>
+
