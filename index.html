@@ -5,42 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riley Boughner</title>
+    <style>
+      /* Default styles for larger screens (desktop) */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .text-content {
+        text-align: center;
+        margin: 30px;
+        width: 600px;
+      }
+
+      .image {
+        width: 600px;
+      }
+
+      .links {
+        font-size: 24px;
+        margin: 25px;
+      }
+
+      .special-link {
+        font-size: 24px;
+      }
+
+      /* Media query for mobile devices */
+      @media screen and (max-width: 768px) {
+        .text-content {
+          width: 90vw;  /* Adjust width on mobile */
+        }
+
+        .image {
+          width: 90vw;  /* Adjust image width on mobile */
+        }
+
+        .links {
+          font-size: 18px; /* Adjust link text size for mobile */
+        }
+
+        .special-link {
+          font-size: 18px; /* Adjust special link text size for mobile */
+        }
+
+        /* Adjust font size for the text under Riley Boughner for better readability */
+        .text-content font {
+          font-size: 4vw;
+        }
+      }
+    </style>
 </head>
 <body>
 
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+  <div class="container">
+    <div class="text-content">
+      <font size="12">
+        <i><b>~ Riley Boughner ~</b></i><br>
+      </font>
+      <font size="6">
+        <i>keeping it simple since 2003</i>
+      </font>
+    </div>
 
-    <div style="text-align: center;">
-      <div style="margin: 30px; width: 600px;">
+    <img src="images/main.jpg" class="image" style="object-fit: cover; object-position: bottom;">
 
-        <font size="12">
-          <i><b>~ Riley Boughner ~</b></i><br>
-        </font>
+    <div class="links"> 
+      | <a href="me.html">Me</a> | 
+      <a href="projects.html">Projects</a> | 
+      <a href="sources/resume.pdf">Resume</a> | 
+      <a href="contact.html">Contact</a> | 
+      <a href="quotes.html">Quotes</a> | 
+    </div>
 
-        <font size="6">
-          <i>keeping it simple since 2003</i>
-        </font>
-
-      </div>
-
-      <img src="images/main.jpg" style="width: 600px">
-
-      <div style="font-size: 24px; margin: 25px;"> | 
-        <a href="me.html">Me</a> | 
-        <a href="projects.html">Projects</a> | 
-        <a href="sources/resume.pdf">Resume</a> | 
-        <a href="contact.html">Contact</a> | 
-        <a href="quotes.html">Quotes</a> | 
-
-      </div>
-
-      <div style="font-size: 24px;">
-        <a href="https://en.wikipedia.org/wiki/Battle_of_the_Alamo">__̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡ ̡ ̴̡ı̴̡̡ ̡͌l̡̡̡̡.___</a>
-      </div>
-
-
+    <div class="special-link">
+      <a href="https://en.wikipedia.org/wiki/Battle_of_the_Alamo">__̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡ ̡ ̴̡ı̴̡̡ ̡͌l̡̡̡̡.___</a>
     </div>
   </div>
 
 </body>
 </html>
+
