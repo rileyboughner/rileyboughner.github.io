@@ -7,19 +7,19 @@
     <title>Riley Boughner</title>
     <style>
       /* Default styles for larger screens (desktop) */
-      .image, .text {
+      .image, .text, .name {
         width: 30vw;
       }
 
       /* Media query for mobile devices */
       @media screen and (max-width: 768px) {
-        .image, .text {
+        .image, .text, .name {
           width: 90vw;
         }
 
         /* Adjust font size on smaller screens to prevent wrapping */
         .name {
-          font-size: 6vw; /* Adjust font size on mobile for better fit */
+          font-size: 8vw; /* Adjust font size on mobile for better fit */
         }
       }
 
@@ -28,7 +28,10 @@
         font-size: 48px; /* Default font size for desktop */
         font-style: italic;
         font-weight: bold;
+        text-align: center;
         white-space: nowrap; /* Prevents wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Adds ellipsis if text overflows */
       }
     </style>
 </head>
