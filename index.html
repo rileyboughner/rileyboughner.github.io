@@ -192,6 +192,91 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section class="container" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="card about-card">
+        <img src="https://avatars.githubusercontent.com/u/66699507?v=4" alt="Riley Boughner portrait" loading="lazy" decoding="async" class="about-photo">
+        <div class="about-text">
+          <p>Hey! I’m Riley. I’ve been a drummer for over 15 years and recently started learning guitar. Music has been a big part of my life, and I even run a small business buying and selling instruments.
+          <p>
+I’m also big on spending time outdoors. Whether it’s camping, boating, or kayaking, I like getting away from the screen and making the most of good weather.
+          </p>
+
+          <p><a class="btn" href="#resume">View Resume</a></p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- PROJECTS -->
+    <section class="container" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected Projects</h2>
+      <div class="muted" style="margin-bottom:10px">Filter by tag:</div>
+      <div class="tags" role="group" aria-label="Project filters">
+        <button class="tag" data-filter="all">All</button>
+        <button class="tag" data-filter="web">Web</button>
+        <button class="tag" data-filter="ui/ux">UI/UX</button>
+        <button class="tag" data-filter="linux">Linux</button>
+        <button class="tag" data-filter="scripting">Scripting</button>
+        <button class="tag" data-filter="automation">Automation</button>
+        <button class="tag" data-filter="python">Python</button>
+      </div>
+      <div class="grid cols-3" id="projectGrid" style="margin-top:14px">
+        <!-- Card 1 -->
+        <article class="card project" data-tags="web react flask">
+          <img src="cms.png" alt="CMS Screenshot" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>CMS</h3>
+            <p class="muted">A lightweight CMS for my instrument business, built to track stock, sales, and trades with speed and simplicity.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">React</span><span class="tag">Flask</span></div>
+            <p><a class="btn secondary" href="#" aria-label="Atlas UI live demo (placeholder)">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="card project" data-tags="linux scripting automation">
+          <img src="dotfiles.png" alt="dotfiles image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Dotfiles</h3>
+            <p class="muted">A curated set of Linux configuration files and automation scripts for managing shell environments, developer tools, and system settings. Designed for portability and quick setup across multiple machines.</p>
+            <div class="tags"><span class="tag">Linux</span><span class="tag">Scripting</span><span class="tag">Automation</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/dotfiles">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="card project" data-tags="python ui/ux scripting">
+          <img src="smartmirror.png" alt="smartmirror image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Smart Mirror</h3>
+            <p class="muted">Turns an old computer into a smart mirror with time, weather, calendar, and news — all built in Python with modular widgets.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">UI/UX</span><span class="tag">Scripting</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/SmartMirror">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="card project" data-tags="linux docker devops automation">
+          <img src="homelab.png" alt="homelab image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Declarative Homelab</h3>
+            <p class="muted">Infrastructure-as-Code blueprints for my homelab, fully automated with NixOS. Manages app deployments, secrets, and system configuration consistently across machines.</p>
+            <div class="tags"><span class="tag">Linux</span><span class="tag">Docker</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/homelab">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 5 -->
+        <article class="card project" data-tags="web ui/ux">
+          <img src="portfolio.png" alt="portfolio image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Portfolio</h3>
+            <p class="muted">My personal developer portfolio site, designed to showcase projects, skills, and experience. Built with a responsive layout and dark mode for a clean, modern presentation.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">UI/UX</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/rileyboughner.github.io">Repo</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- SKILLS & CERTIFICATES -->
     <section class="container" id="skills" aria-labelledby="skills-title">
       <h2 id="skills-title">Skills &amp; Certificates</h2>
@@ -372,90 +457,6 @@
       </div>
     </section>
 
-      </div>
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section class="container" id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Selected Projects</h2>
-      <div class="muted" style="margin-bottom:10px">Filter by tag:</div>
-      <div class="tags" role="group" aria-label="Project filters">
-        <button class="tag" data-filter="all">All</button>
-        <button class="tag" data-filter="web">Web</button>
-        <button class="tag" data-filter="ui/ux">UI/UX</button>
-        <button class="tag" data-filter="linux">Linux</button>
-        <button class="tag" data-filter="scripting">Scripting</button>
-        <button class="tag" data-filter="automation">Automation</button>
-        <button class="tag" data-filter="python">Python</button>
-      </div>
-      <div class="grid cols-3" id="projectGrid" style="margin-top:14px">
-        <!-- Card 1 -->
-        <article class="card project" data-tags="web react flask">
-          <img src="cms.png" alt="CMS Screenshot" loading="lazy" decoding="async">
-          <div class="pad">
-            <h3>CMS</h3>
-            <p class="muted">A lightweight CMS for my instrument business, built to track stock, sales, and trades with speed and simplicity.</p>
-            <div class="tags"><span class="tag">Web</span><span class="tag">React</span><span class="tag">Flask</span></div>
-            <p><a class="btn secondary" href="#" aria-label="Atlas UI live demo (placeholder)">Repo</a></p>
-          </div>
-        </article>
-        <!-- Card 2 -->
-        <article class="card project" data-tags="linux scripting automation">
-          <img src="dotfiles.png" alt="dotfiles image" loading="lazy" decoding="async">
-          <div class="pad">
-            <h3>Dotfiles</h3>
-            <p class="muted">A curated set of Linux configuration files and automation scripts for managing shell environments, developer tools, and system settings. Designed for portability and quick setup across multiple machines.</p>
-            <div class="tags"><span class="tag">Linux</span><span class="tag">Scripting</span><span class="tag">Automation</span></div>
-            <p><a class="btn secondary" href="https://github.com/rileyboughner/dotfiles">Repo</a></p>
-          </div>
-        </article>
-        <!-- Card 3 -->
-        <article class="card project" data-tags="python ui/ux scripting">
-          <img src="smartmirror.png" alt="smartmirror image" loading="lazy" decoding="async">
-          <div class="pad">
-            <h3>Smart Mirror</h3>
-            <p class="muted">Turns an old computer into a smart mirror with time, weather, calendar, and news — all built in Python with modular widgets.</p>
-              <div class="tags"><span class="tag">Python</span><span class="tag">UI/UX</span><span class="tag">Scripting</span></div>
-            <p><a class="btn secondary" href="https://github.com/rileyboughner/SmartMirror">Repo</a></p>
-          </div>
-        </article>
-        <!-- Card 4 -->
-        <article class="card project" data-tags="linux docker devops automation">
-          <img src="homelab.png" alt="homelab image" loading="lazy" decoding="async">
-          <div class="pad">
-            <h3>Declarative Homelab</h3>
-            <p class="muted">Infrastructure-as-Code blueprints for my homelab, fully automated with NixOS. Manages app deployments, secrets, and system configuration consistently across machines.</p>
-            <div class="tags"><span class="tag">Linux</span><span class="tag">Docker</span></div>
-            <p><a class="btn secondary" href="https://github.com/rileyboughner/homelab">Repo</a></p>
-          </div>
-        </article>
-        <!-- Card 5 -->
-        <article class="card project" data-tags="web ui/ux">
-          <img src="portfolio.png" alt="portfolio image" loading="lazy" decoding="async">
-          <div class="pad">
-            <h3>Portfolio</h3>
-            <p class="muted">My personal developer portfolio site, designed to showcase projects, skills, and experience. Built with a responsive layout and dark mode for a clean, modern presentation.</p>
-            <div class="tags"><span class="tag">Web</span><span class="tag">UI/UX</span></div>
-            <p><a class="btn secondary" href="https://github.com/rileyboughner/rileyboughner.github.io">Repo</a></p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="container" id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <div class="card about-card">
-        <img src="https://avatars.githubusercontent.com/u/66699507?v=4" alt="Riley Boughner portrait" loading="lazy" decoding="async" class="about-photo">
-        <div class="about-text">
-          <p>Hey! I’m Riley. I’ve been a drummer for over 15 years and recently started learning guitar. Music has been a big part of my life, and I even run a small business buying and selling instruments.
-          <p>
-I’m also big on spending time outdoors. Whether it’s camping, boating, or kayaking, I like getting away from the screen and making the most of good weather.
-          </p>
-
-          <p><a class="btn" href="#resume">View Resume</a></p>
-        </div>
       </div>
     </section>
 
