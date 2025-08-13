@@ -1,98 +1,566 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="auto">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riley Boughner</title>
-    <style>
-      /* Default styles for larger screens (desktop) */
-      body {
-        font-family: Arial, sans-serif;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Riley Boughner — Software Engineer</title>
+  <meta name="description" content="Software engineer portfolio for Riley Boughner. Clean, creative, accessible." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='12' width='64' height='64' fill='%236366f1'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,Segoe UI,Roboto' font-weight='800' font-size='28' fill='white'%3ETB%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{ --bg:255 255 255; --fg:17 24 39; --muted:100 116 139; --card:255 255 255; --accent:99 102 241; --radius:16px; --blur:12px; --shadow:0 10px 30px rgba(2,6,23,.08); }
+    @media (prefers-color-scheme: dark){ :root{ --bg:2 6 23; --fg:226 232 240; --muted:148 163 184; --card:15 23 42; --accent:99 102 241; } }
+    [data-theme="light"]{ --bg:255 255 255; --fg:17 24 39; --muted:100 116 139; --card:255 255 255; --accent:59 130 246; }
+    [data-theme="dark"]{ --bg:2 6 23; --fg:226 232 240; --muted:148 163 184; --card:15 23 42; --accent:99 102 241; }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; color:rgb(var(--fg)); background:rgb(var(--bg));
+      background-image: radial-gradient(900px 500px at 10% -10%, rgba(99,102,241,.10), transparent),
+                        radial-gradient(900px 500px at 110% 10%, rgba(59,130,246,.08), transparent);
+    }
+    a{color:rgb(var(--accent)); text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%; display:block}
+    .container{max-width:82vw; margin:auto; padding:24px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(var(--blur)); background:rgba(var(--bg),.7); border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:40px; height:40px; border-radius:11px; display:grid; place-items:center; color:#fff; font-weight:800; letter-spacing:.5px; box-shadow:var(--shadow);
+      background:linear-gradient(135deg, rgba(99,102,241,.95), rgba(59,130,246,.95));}
+    .logo span{font-size:18px}
+    .nav a{padding:10px 12px; border-radius:10px}
+    .nav a:focus-visible{outline:2px solid rgba(59,130,246,.45); outline-offset:2px}
+    .links{display:flex; gap:8px; align-items:center}
+    .theme {
+      border: 1px solid rgba(148, 163, 184, .25);
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(var(--card), .85);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: rgb(var(--fg)); /* ensures icon color follows theme text color */
+    }
+    [data-theme="dark"] .theme {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .18);
+      color: #fff; /* makes icon white in dark mode */
+    }
+    [data-theme="light"] .theme {
+      background: rgba(0, 0, 0, .04);
+      border-color: rgba(0, 0, 0, .12);
+      color: #0f172a; /* makes icon dark in light mode */
+    }
+    .theme svg {
+      width: 18px;
+      height: 18px;
+    }
+
+
+
+/* About Section Layout Fix */
+    #about .about-card {
+      display: grid;
+      grid-template-columns: 300px 1fr; /* picture | text */
+      gap: 24px;
+      align-items: start;
+      padding: 16px;
+    }
+    #about .about-photo {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      object-fit: cover;
+    }
+    #about .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      #about .about-card {
+        grid-template-columns: 1fr;
       }
+    }
+    /* Sections */
+    section{padding:64px 0}
+    .hero{padding:72px 0 40px; text-align:center}
+    .hero h1{font-size:clamp(28px,4.5vw,44px); line-height:1.12; margin:0 0 10px}
+    .hero p{color:rgb(var(--muted)); margin:0 auto 22px; max-width:60ch}
+    .actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 
-      .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
+    /* Buttons */
+    .btn{
+      --grad: linear-gradient(135deg, rgba(99,102,241,1), rgba(59,130,246,1), rgba(56,189,248,1));
+      position:relative; display:inline-block; padding:12px 16px; border-radius:12px; font-weight:700;
+      color:white; border:0; background:var(--grad); box-shadow:var(--shadow); isolation:isolate;
+      background-size:200% 200%; transition:transform .15s ease, background-position .6s ease, box-shadow .2s ease;
+    }
+    .btn::after{
+      content:""; position:absolute; inset:-2px; border-radius:14px; z-index:-1;
+      background:linear-gradient(135deg, rgba(255,255,255,.12), transparent 40%, rgba(255,255,255,.12));
+      opacity:.25; filter:blur(10px);
+    }
+    .btn:hover{ transform:translateY(-1px); background-position:100% 0; text-decoration:none; }
+    .btn:active{ transform:translateY(0); }
+    .btn.secondary {
+      color: white;
+      background: var(--grad);
+      border: 0;
+      box-shadow: var(--shadow);
+      background-size: 200% 200%;
+      transition: transform .15s ease, background-position .6s ease, box-shadow .2s ease;
+    }
+  .btn.secondary:hover {
+    transform: translateY(-1px);
+    background-position: 100% 0;
+  }    
+    .btn.ghost{
+      color:rgb(var(--fg)); background:transparent; border:1px solid rgba(148,163,184,.25);
+    }
 
-      .text-content {
-        text-align: center;
-        margin: 30px;
-        width: 600px;
-      }
+    /* Cards / grids */
+    .grid{display:grid; gap:18px}
+    @media(min-width:720px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+    .card{border:1px solid rgba(148,163,184,.2); background:rgba(var(--card),.75); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); backdrop-filter: blur(var(--blur));}
+    .card .pad{padding:16px}
+    .card > img{
+      width: 100%;
+      height: auto;
+      display: block;      /* removes inline gap */
+    }
+    .muted{color:rgb(var(--muted))}
+    .tag{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid rgba(148,163,184,.25); margin:2px}
 
-      .image {
-        width: 600px;
-      }
+    /* Skills / Certificates */
+    .tags{display:flex; flex-wrap:wrap; gap:6px}
+    .cert-badge{display:flex; gap:12px; align-items:center}
+    .cert-badge img{width:15vw; height:15vh; border-radius:12px}
+    .cert-grid .card h3{margin:0 0 6px}
+    .subtle{font-size:13px; color:rgb(var(--muted))}
 
-      .links {
-        font-size: 24px;
-        margin: 25px;
-        white-space: nowrap;  /* Prevent wrapping of links */
-      }
+    /* Footer */
+    footer{padding:28px 0; border-top:1px solid rgba(148,163,184,.15); color:rgb(var(--muted))}
 
-      .special-link {
-        font-size: 24px;
-      }
+    /* Utilities */
+    .hidden{display:none !important}
+    .sr-only{position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important}
 
-      /* Media query for mobile devices */
-      @media screen and (max-width: 768px) {
-        .text-content {
-          font-size: 24px
-          width: 90vw;  /* Adjust width on mobile */
-        }
-
-        .image {
-          width: 90vw;  /* Adjust image width on mobile */
-        }
-
-        .links {
-          font-size: 18px; /* Adjust link text size for mobile */
-          white-space: nowrap;  /* Ensure no wrapping on mobile */
-        }
-
-        .special-link {
-          font-size: 18px; /* Adjust special link text size for mobile */
-        }
-
-        /* Adjust font size for the text under Riley Boughner for better readability */
-        .text-content font {
-          font-size: 4vw;
-        }
-      }
-    </style>
+    /* Artistic link tiles (Contact) */
+    .tiles{display:grid; gap:16px}
+    @media(min-width:720px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+    .tile{
+      position:relative; padding:18px; border-radius:18px; color:white; font-weight:700; display:flex; align-items:center; justify-content:space-between;
+      background:linear-gradient(135deg, rgba(99,102,241,1), rgba(59,130,246,1));
+      box-shadow:var(--shadow); overflow:hidden;
+    }
+    .tile small{display:block; font-weight:600; opacity:.9}
+    .tile .emoji{font-size:28px; opacity:.95}
+    .tile:after{
+      content:""; position:absolute; inset:-20%; background:radial-gradient(350px 120px at 20% 10%, rgba(255,255,255,.28), transparent 60%);
+      transform:rotate(15deg);
+    }
+  </style>
 </head>
 <body>
-
-  <div class="container">
-    <div class="text-content">
-      <font size="12">
-        <i><b>~ Riley Boughner ~</b></i><br>
-      </font>
-      <font size="6">
-        <i>keeping it simple since 2003</i>
-      </font>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand"><div class="logo" aria-hidden="true"><span>RB</span></div><strong>Riley Boughner</strong></div>
+      <nav class="links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills &amp; Certificates</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="theme" aria-label="Toggle color theme" title="Toggle theme">🌓</button>
+      </nav>
     </div>
+  </header>
 
-    <img src="images/main.jpg" class="image" style="object-fit: cover; object-position: bottom;">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <h1>Building efficient, scalable, and reliable systems.</h1>
+      <p>I’m Riley Boughner — a Computer Science student with hands-on experience in IT, full-stack development, and software engineering. My passion lies in creating smooth developer workflows, robust infrastructure, and setting the stage for a career in DevOps.</p>
+      <div class="actions">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Get in Touch</a>
+      </div>
+    </section>
 
-    <div class="links"> 
-      | <a href="me.html">Me</a> | 
-      <a href="projects.html">Projects</a> | 
-      <a href="sources/resume.pdf">Resume</a> | 
-      <a href="contact.html">Contact</a> | 
-      <a href="quotes.html">Quotes</a> | 
-    </div>
+    <!-- SKILLS & CERTIFICATES -->
+    <section class="container" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills &amp; Certificates</h2>
+      <div class="card"><div class="pad">
+        <!-- Skills bubbles (unchanged) -->
+        <div class="tags" aria-label="Skills">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">React</span>
+          <span class="tag">NixOS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Playwright</span>
+          <span class="tag">REST</span>
+          <span class="tag">WebSockets</span>
+        </div>
+      </div></div>
 
-    <div class="special-link">
-      <a href="https://en.wikipedia.org/wiki/Battle_of_the_Alamo">__̴ı̴̴̡̡̡ ̡͌l̡̡̡ ̡͌l̡*̡̡ ̴̡ı̴̴̡ ̡̡͡|̲̲̲͡͡͡ ̲▫̲͡ ̲̲̲͡͡π̲̲͡͡ ̲̲͡▫̲̲͡͡ ̲|̡̡̡ ̡ ̴̡ı̴̡̡ ̡͌l̡̡̡̡.___</a>
-    </div>
-  </div>
+      <!-- Certificates cards -->
+      <div class="cert-grid grid cols-3" style="margin-top:16px">
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to Cloud Computing</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Cloud Foundations — Verified knowledge of cloud basics, IBM Cloud services, and core deployment/security concepts.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/DHRDA20SQAYF" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
 
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to DevOps</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Introduction to DevOps — Fundamentals of DevOps practices, CI/CD, infrastructure as code, and collaboration between development and operations.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/OG28AYC1596F" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to Git</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Getting Started with Git and GitHub — Covers version control fundamentals, Git concepts, and collaborative workflows. Includes creating repositories, branching, pull requests, and merging, as well as building and sharing open-source projects on GitHub.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/LE7UXTH1LOGM" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to Software Engineering</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">Introduction to Software Engineering — Overview of software development principles, methodologies, and the software lifecycle. Covers requirements gathering, design, development, testing, deployment, and maintenance, along with best practices for building reliable and maintainable software.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/HOVM6J1J7R54" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to Containers</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Introduction to Containers — Fundamentals of container technology, including how containers work, their benefits, and use cases. Covers creating, running, and managing containers with Docker and Kubernetes basics.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/XIYBQYV2675G" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Indroduction to Agile Development</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Introduction to Agile Development and Scrum — Covers Agile principles, Scrum roles, events, and artifacts. Includes writing user stories, estimating story points, using kanban boards, creating product backlogs, and applying Agile practices like small batches, MVPs, and test-driven development.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/BKFT73SZFO4W" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Introduction to Linux & Scipting</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Hands-on Introduction to Linux Commands and Shell Scripting — Covers Linux architecture, distributions, and package management. Includes using Bash commands for file, networking, and system operations, writing shell scripts with environment variables, and automating tasks with cron jobs.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/S3NG1JD55E5H" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Developing AI Applications with Python and Flask</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Developing AI Applications with Python and Flask — Covers the full lifecycle of creating Python applications, from building and testing modules to packaging and deployment. Includes developing web apps with Flask, integrating AI capabilities using IBM Watson AI libraries, and implementing best practices for routing, error handling, and CRUD operations.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/NFOZ7AAY8MJI" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Aplication secuity for Developers and DevOps Professionals</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Introduction to Agile Development and Scrum — Overview of Agile principles and Scrum framework, including roles, events, and artifacts. Covers creating and refining product backlogs, writing user stories, estimating story points, and tracking progress with kanban boards and burndown charts.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/BKFT73SZFO4W" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="IBM-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>Python for Data Science, Ai & Development</h3>
+                <div class="subtle">IBM · June 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">IBM Python for Data Science, AI & Development — Covers Python programming fundamentals, including syntax, data types, functions, and object-oriented concepts. Includes hands-on work with Pandas, NumPy, and Jupyter Notebooks, plus working with REST APIs and performing web scraping.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/UQHL7KDL72ZS" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="pad">
+            <div class="cert-badge">
+              <img src="aws-Logo.jpg" alt="Certificate badge placeholder">
+              <div>
+                  <h3>AWS Cloud Practioner - In Progress</h3>
+                <div class="subtle">Amazon · August 2025</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:10px">AWS Certified Cloud Practitioner — Demonstrates knowledge of AWS Cloud fundamentals, including core services, cloud concepts, security, architecture, pricing, and support. Validates the ability to understand AWS use cases and basic deployment principles.</p>
+            <p><a class="btn secondary" href="https://www.coursera.org/account/accomplishments/verify/BKFT73SZFO4W" target="_blank" rel="noreferrer">View Credential</a></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="container" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected Projects</h2>
+      <div class="muted" style="margin-bottom:10px">Filter by tag:</div>
+      <div class="tags" role="group" aria-label="Project filters">
+        <button class="tag" data-filter="all">All</button>
+        <button class="tag" data-filter="web">Web</button>
+        <button class="tag" data-filter="ui/ux">UI/UX</button>
+        <button class="tag" data-filter="linux">Linux</button>
+        <button class="tag" data-filter="scripting">Scripting</button>
+        <button class="tag" data-filter="automation">Automation</button>
+        <button class="tag" data-filter="python">Python</button>
+      </div>
+      <div class="grid cols-3" id="projectGrid" style="margin-top:14px">
+        <!-- Card 1 -->
+        <article class="card project" data-tags="web react flask">
+          <img src="cms.png" alt="CMS Screenshot" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>CMS</h3>
+            <p class="muted">A lightweight CMS for my instrument business, built to track stock, sales, and trades with speed and simplicity.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">React</span><span class="tag">Flask</span></div>
+            <p><a class="btn secondary" href="#" aria-label="Atlas UI live demo (placeholder)">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="card project" data-tags="linux scripting automation">
+          <img src="dotfiles.png" alt="dotfiles image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Dotfiles</h3>
+            <p class="muted">A curated set of Linux configuration files and automation scripts for managing shell environments, developer tools, and system settings. Designed for portability and quick setup across multiple machines.</p>
+            <div class="tags"><span class="tag">Linux</span><span class="tag">Scripting</span><span class="tag">Automation</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/dotfiles">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="card project" data-tags="python ui/ux scripting">
+          <img src="smartmirror.png" alt="smartmirror image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Smart Mirror</h3>
+            <p class="muted">Turns an old computer into a smart mirror with time, weather, calendar, and news — all built in Python with modular widgets.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">UI/UX</span><span class="tag">Scripting</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/SmartMirror">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="card project" data-tags="linux docker devops automation">
+          <img src="homelab.png" alt="homelab image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Declarative Homelab</h3>
+            <p class="muted">Infrastructure-as-Code blueprints for my homelab, fully automated with NixOS. Manages app deployments, secrets, and system configuration consistently across machines.</p>
+            <div class="tags"><span class="tag">Linux</span><span class="tag">Docker</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/homelab">Repo</a></p>
+          </div>
+        </article>
+        <!-- Card 5 -->
+        <article class="card project" data-tags="web ui/ux">
+          <img src="portfolio.png" alt="portfolio image" loading="lazy" decoding="async">
+          <div class="pad">
+            <h3>Portfolio</h3>
+            <p class="muted">My personal developer portfolio site, designed to showcase projects, skills, and experience. Built with a responsive layout and dark mode for a clean, modern presentation.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">UI/UX</span></div>
+            <p><a class="btn secondary" href="https://github.com/rileyboughner/rileyboughner.github.io">Repo</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="container" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="card about-card">
+        <img src="https://avatars.githubusercontent.com/u/66699507?v=4" alt="Riley Boughner portrait" loading="lazy" decoding="async" class="about-photo">
+        <div class="about-text">
+          <p>Hey! I’m Riley. I’ve been a drummer for over 15 years and recently started learning guitar. Music has been a big part of my life, and I even run a small business buying and selling instruments.
+          <p>
+I’m also big on spending time outdoors. Whether it’s camping, boating, or kayaking, I like getting away from the screen and making the most of good weather.
+          </p>
+
+          <p><a class="btn" href="#resume">View Resume</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME PREVIEW -->
+    <section class="container" id="resume" aria-labelledby="resume-title">
+      <h2 id="resume-title">Resume (Preview)</h2>
+      <div class="card"><div class="pad">
+        <h3>Summary</h3>
+        <p class="muted">Software engineer focused on performant, accessible products and reliable delivery.</p>
+        <h3>Experience</h3>
+        <ul>
+          <li><strong>Software Engineer</strong> — Built and maintained a suite of business software (CMS, dashboards, APIs). Led performance and accessibility workstreams.</li>
+          <li><strong>IT & Systems</strong> — Automated deployment, monitoring, and backups for self-hosted services.</li>
+        </ul>
+        <h3>Education</h3>
+        <p>BS in Computer Science (in progress)</p>
+        <p><a class="btn" href="/assets/riley-boughner-resume.pdf" download>Download PDF</a></p>
+      </div></div>
+    </section>
+
+    <!-- CONTACT (form removed; artistic links) -->
+    <section class="container" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="grid cols-2">
+        <div class="card"><div class="pad">
+          <p class="muted">Reach me directly: <a href="mailto:mail@rileyboughner.dev">mail@rileyboughner.dev</a></p>
+          <div class="tiles" style="margin-top:16px">
+            <a class="tile" href="https://github.com/rileyboughner" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+              <div><small>Explore my code</small> GitHub</div><div class="emoji">💻</div>
+            </a>
+            <a class="tile" href="https://linkedin.com/in/rileyboughner" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+              <div><small>Connect professionally</small> LinkedIn</div><div class="emoji">👋</div>
+            </a>
+            <a class="tile" href="#projects" aria-label="View selected projects">
+              <div><small>See featured work</small> Projects</div><div class="emoji">✨</div>
+            </a>
+            <a class="tile" href="/assets/riley-boughner-resume.pdf" aria-label="Download resume" download>
+                <div><small>View My Resume</small> Download PDF</div><div class="emoji">📄</div>
+            </a>
+          </div>
+        </div></div>
+
+        <div class="card"><div class="pad">
+          <h3>Availability</h3>
+          <p class="muted">Open to Spring 2026 internships/co-ops (remote, hybrid, or on-site). US work-authorized.</p>
+          <p><a class="btn" href="mailto:mail@rileyboughner.dev?subject=Hello%20Riley%20👋&body=Hi%20Riley,%0A%0A">Email Me</a></p>
+        </div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Riley Boughner · Built with clean HTML/CSS/JS · <a href="#home">Back to top</a></div>
+  </footer>
+
+  <script>
+    // Theme toggle with localStorage
+    (function(){
+      const root = document.documentElement; const btn = document.getElementById('themeBtn');
+      const stored = localStorage.getItem('theme');
+      if(stored){ root.setAttribute('data-theme', stored); }
+      else { root.setAttribute('data-theme', 'auto'); }
+      function currentTheme(){
+        const t = root.getAttribute('data-theme');
+        if(t==='auto') return (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        return t;
+      }
+      function toggle(){
+        const next = currentTheme()==='dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+      }
+      btn.addEventListener('click', toggle);
+    })();
+
+    // Project filter
+(function(){
+  const filterBar = document.querySelector('[aria-label="Project filters"]');
+  const buttons   = filterBar ? filterBar.querySelectorAll('[data-filter]') : [];
+  const cards     = document.querySelectorAll('#projectGrid .project');
+
+  const norm = s => (s || '').toLowerCase().trim();
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = norm(btn.getAttribute('data-filter'));
+
+      cards.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '')
+          .split(/[\s,]+/)  // works with spaces or commas
+          .map(norm)
+          .filter(Boolean);
+
+        if (filter === 'all' || tags.includes(filter)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
 
